@@ -13,6 +13,10 @@
     {
       "id": "server_default",
       "type": "@runnerty-trigger-server"
+    },
+    {
+      "id": "schedule_dafault",
+      "type": "@runnerty-trigger-schedule"
     }
   ],
   "executors": [
@@ -25,12 +29,22 @@
       "templateDir": "templates",
       "template": "alerts",
       "ejsRender": true
+    },
+    {
+      "id": "check_online_service_default",
+      "type": "@runnerty-executor-check-online-service"
     }
   ],
   "notifiers": [
     {
       "id": "console_default",
       "type": "@runnerty-notifier-console"
+    },
+    {
+      "id": "telegram_default",
+      "type": "@runnerty-notifier-telegram",
+      "token": "ABC123",
+      "chat_id": "ABC123"
     }
   ],
   "global_values": [

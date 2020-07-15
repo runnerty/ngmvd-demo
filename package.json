@@ -20,9 +20,11 @@
   "author": "Coderty",
   "license": "MIT",
   "dependencies": {
+    "@runnerty/executor-check-online-service": "^1.0.1",
     "@runnerty/executor-mail": "^2.0.0",
     "@runnerty/executor-shell": "^1.0.5",
     "@runnerty/notifier-console": "^1.0.0",
+    "@runnerty/notifier-telegram": "^1.0.0",
     "@runnerty/trigger-schedule": "^2.0.0",
     "@runnerty/trigger-server": "0.0.1",
     "runnerty": "^2.6.3"
