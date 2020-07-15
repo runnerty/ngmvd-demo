@@ -1,0 +1,43 @@
+{
+  "$schema": "https://raw.githubusercontent.com/runnerty/schemas/master/src/config-2.6.json",
+  "general": {
+    "servers": [
+      {
+        "id": "srv_ngmvd",
+        "port": 8080,
+        "endpoint": "/ngmvd"
+      }
+    ]
+  },
+  "triggers": [
+    {
+      "id": "server_default",
+      "type": "@runnerty-trigger-server"
+    }
+  ],
+  "executors": [
+    {
+      "id": "mail_default",
+      "type": "@runnerty-executor-mail",
+      "disable": false,
+      "from": "Runnerty <somemail@runnerty.io>",
+      "transport": "smtps://somemail%40runnerty.io:password@smtp.gmail.com/?pool=true",
+      "templateDir": "templates",
+      "template": "alerts",
+      "ejsRender": true
+    }
+  ],
+  "notifiers": [
+    {
+      "id": "console_default",
+      "type": "@runnerty-notifier-console"
+    }
+  ],
+  "global_values": [
+    {
+      "WORKDIR": {
+        "PATH": "."
+      }
+    }
+  ]
+}

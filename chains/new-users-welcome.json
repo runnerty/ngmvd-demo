@@ -1,0 +1,57 @@
+{
+  "id": "new-user-welcome",
+  "name": "Sends a welcome email to the new user",
+  "triggers": [
+    {
+      "id": "server_default",
+      "server": {
+        "id": "srv_ngmvd",
+        "path": "/new-user-welcome",
+        "method": "post"
+      }
+    }
+  ],
+  "notifications": {
+    "on_start": [
+      {
+        "id": "console_default",
+        "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') START OF THE CHAIN: @GV(MY_VALUE_ONE)"
+      }
+    ],
+    "on_end": [
+      {
+        "id": "console_default",
+        "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') END OF THE CHAIN: @GV(MY_VALUE_ONE)"
+      }
+    ]
+  },
+  "processes": [
+    {
+      "id": "SEND_WELLCOME_MAIL",
+      "name": "Sends the wellcome message to the user",
+      "depends_process": {},
+      "exec": {
+        "id": "mail_default",
+        "to": ["@GV(email)"],
+        "templateDir": "@GV(WORKDIR_PATH)/templates",
+        "template": "user-welcome",
+        "ejsRender": true,
+        "attachments": [
+          {
+            "filename": "logo.png",
+            "path": "@GV(WORKDIR_PATH)/templates/user-welcome/logo.png",
+            "cid": "logo@logo.png"
+          }
+        ]
+      },
+      "notifications": {
+        "on_fail": [
+          {
+            "id": "console_default",
+            "message": "ERROR EN PROCESO @GV(PROCESS_ID) @GV(PROCESS_EXEC_COMMAND_EXECUTED) / @GV(PROCESS_EXEC_ERR_OUTPUT)"
+          }
+        ]
+      }
+    }
+  ]
+}
