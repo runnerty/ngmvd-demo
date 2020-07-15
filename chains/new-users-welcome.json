@@ -27,8 +27,8 @@
   },
   "processes": [
     {
-      "id": "SEND_WELLCOME_MAIL",
-      "name": "Sends the wellcome message to the user",
+      "id": "SEND_WELCOME_MAIL",
+      "name": "Sends the welcome message to the user",
       "depends_process": {},
       "exec": {
         "id": "mail_default",
@@ -36,6 +36,8 @@
         "templateDir": "@GV(WORKDIR_PATH)/templates",
         "template": "user-welcome",
         "ejsRender": true,
+        "title": "Mensaje de Runnerty",
+        "message": "¡Este mensaje lo hemos mandado desde Anguar!",
         "attachments": [
           {
             "filename": "logo.png",

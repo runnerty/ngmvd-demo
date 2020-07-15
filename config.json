@@ -4,7 +4,7 @@
     "servers": [
       {
         "id": "srv_ngmvd",
-        "port": 8080,
+        "port": 3000,
         "endpoint": "/ngmvd"
       }
     ]
@@ -17,6 +17,10 @@
     {
       "id": "schedule_dafault",
       "type": "@runnerty-trigger-schedule"
+    },
+    {
+      "id": "filewatcher_default",
+      "type": "@runnerty-trigger-file-watcher"
     }
   ],
   "executors": [
@@ -24,8 +28,8 @@
       "id": "mail_default",
       "type": "@runnerty-executor-mail",
       "disable": false,
-      "from": "Runnerty <somemail@runnerty.io>",
-      "transport": "smtps://somemail%40runnerty.io:password@smtp.gmail.com/?pool=true",
+      "from": "Runnerty <mail@gmail.com>",
+      "transport": "smtps://mail%40gmail.com:your_password@smtp.gmail.com/?pool=true",
       "templateDir": "templates",
       "template": "alerts",
       "ejsRender": true
@@ -47,8 +51,8 @@
     {
       "id": "telegram_default",
       "type": "@runnerty-notifier-telegram",
-      "token": "1380132432:AAEum4NrbLd_BXLpWMPQeXyOeoSTqHbqBQg",
-      "chat_id": "119986741"
+      "token": "your_token",
+      "chat_id": "your_chat_id"
     }
   ],
   "global_values": [

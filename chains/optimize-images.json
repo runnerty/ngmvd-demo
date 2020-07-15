@@ -1,77 +1,70 @@
 {
-    "$schema": "https://raw.githubusercontent.com/runnerty/schemas/master/src/plan-2.6.json",
-    "chains": [
+  "id": "CHAIN_IMAGE_OPTIMIZATION",
+  "name": "CADENA DE OPTIMIZACIÓN DE IMAGENES",
+  "triggers": [
+    {
+      "id": "filewatcher_default",
+      "file_name": "~/workspace/WATCHER_IMAGE_TEST/*.png",
+      "condition": "add"
+    }
+  ],
+  "notifications": {
+    "on_start": [
       {
-        "id": "CHAIN_IMAGE_OPTIMIZATION",
-        "name": "CADENA DE OPTIMIZACIÓN DE IMAGENES",
-        "triggers": [
+        "id": "console_default",
+        "message": "CHAIN @GV(CHAIN_ID) START"
+      }
+    ],
+    "on_end": [
+      {
+        "id": "console_default",
+        "message": "CHAIN @GV(CHAIN_ID) END"
+      }
+    ],
+    "on_fail": [
+      {
+        "id": "console_default",
+        "message": "CHAIN @GV(CHAIN_ID) FAIL"
+      }
+    ]
+  },
+  "processes": [
+    {
+      "id": "PROCESS_OPTIMIZATION_IMAGE_WATCHED",
+      "name": "Proceso de optimización de imagen añadida",
+      "exec": {
+        "id": "image_default",
+        "input": ["@GV(file_name)"],
+        "destination": "@PATHJOIN(@PATHPARSE(@GV(file_name),'dir'),'/transformed')",
+        "flip": true,
+        "toFormat": "webp",
+        "optimized": true,
+        "quality": 75,
+        "failOnError": true,
+        "composite": [
+          { "input": "~/workspace/ORIGIN/runnerty.png", "gravity": "center", "blend": "soft-light" }
+        ]
+      },
+      "notifications": {
+        "on_start": [
           {
-            "id": "filewatcher_default",
-            "file_name": "/Users/carlos/workspace/WATCHER_IMAGE_TEST/*.png",
-            "condition": "add"
+            "id": "console_default",
+            "message": "PROCESS @GV(PROCESS_ID) START"
           }
         ],
-        "notifications": {
-          "on_start": [
-            {
-              "id": "console_default",
-              "message": "CHAIN @GV(CHAIN_ID) START"
-            }
-          ],
-          "on_end": [
-            {
-              "id": "console_default",
-              "message": "CHAIN @GV(CHAIN_ID) END"
-            }
-          ],
-          "on_fail": [
-            {
-              "id": "console_default",
-              "message": "CHAIN @GV(CHAIN_ID) FAIL"
-            }
-          ]
-        },
-        "processes": [
+        "on_fail": [
           {
-            "id": "PROCESS_OPTIMIZATION_IMAGE_WATCHED",
-            "name": "Proceso de optimización de imagen añadida",
-            "exec": {
-              "id": "image_default",
-              "input": ["@GV(file_name)"],
-              "destination": "@PATHJOIN(@PATHPARSE(@GV(file_name),'dir'),'/transformed')",
-              "flip": true,
-              "toFormat": "webp",
-              "optimized": true,
-              "quality": 75,
-              "failOnError":true,
-              "composite": [{ "input": "/Users/carlos/workspace/ORIGIN/runnerty.png",
-                              "gravity": "center",
-                              "blend": "soft-light"}]
-  
-            },
-            "notifications": {
-              "on_start": [
-                {
-                  "id": "console_default",
-                  "message": "PROCESS @GV(PROCESS_ID) START"
-                }
-              ],
-              "on_fail": [
-                {
-                  "id": "console_default",
-                  "message": "ERR! PROCESS @GV(PROCESS_ID) MESSAGE:@GV(PROCESS_EXEC_MSG_OUTPUT) / FAIL: @GV(PROCESS_EXEC_ERR_OUTPUT)"
-                }
-              ],
-              "on_end": [
-                {
-                  "id": "console_default",
-                  "message": "PROCESS @GV(PROCESS_ID) END ->\n@GV(PROCESS_EXEC_MSG_OUTPUT)"
-                }
-              ]
-            }
+            "id": "console_default",
+            "message": "ERR! PROCESS @GV(PROCESS_ID) MESSAGE:@GV(PROCESS_EXEC_MSG_OUTPUT) / FAIL: @GV(PROCESS_EXEC_ERR_OUTPUT)"
+          }
+        ],
+        "on_end": [
+          {
+            "id": "console_default",
+            "message": "PROCESS @GV(PROCESS_ID) END ->\n@GV(PROCESS_EXEC_MSG_OUTPUT)"
           }
         ]
       }
-    ]
-  }
-  
+    }
+  ]
+}

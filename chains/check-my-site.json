@@ -7,29 +7,14 @@
       "schedule_interval":"*/1 * * * *"
     }
   ],
-  "notifications": {
-    "on_start": [
-      {
-        "id": "console_default",
-        "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') START OF THE CHAIN: @GV(MY_VALUE_ONE)"
-      }
-    ],
-    "on_end": [
-      {
-        "id": "console_default",
-        "message": "@GETDATE('YYYY-MM-DD HH:mm:ss') END OF THE CHAIN: @GV(MY_VALUE_ONE)"
-      }
-    ]
-  },
   "processes": [
     {
-      "id": "SEND_WELLCOME_MAIL",
-      "name": "Sends the wellcome message to the user",
-      "depends_process": {},
+      "id": "CHECK_SITE",
+      "name": "Check google.com",
       "exec": {
         "id":"check_online_service_default",  
-        "hostname": "http://www.google.es",
-        "check_contains": "Voy a tener suelte"
+        "hostname": "https://www.google.com/",
+        "check_contains": "Voy a tener suerte"
       },
       "notifications": {
         "on_fail": [

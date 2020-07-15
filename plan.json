@@ -1,7 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/runnerty/schemas/master/src/plan-2.6.json",
   "chains": [
-    { "chain_path": "./chains/new-users-welcome.json"},
-    { "chain_path": "./chains/check-my-site.json"}
+    { "chain_path": "./chains/new-users-welcome.json" },
+    { "chain_path": "./chains/check-my-site.json" },
+    { "chain_path": "./chains/optimize-images.json" }
   ]
 }
