@@ -33,6 +33,10 @@
     {
       "id": "check_online_service_default",
       "type": "@runnerty-executor-check-online-service"
+    },
+    {
+      "id": "image_default",
+      "type": "@runnerty-executor-image"
     }
   ],
   "notifiers": [
@@ -43,8 +47,8 @@
     {
       "id": "telegram_default",
       "type": "@runnerty-notifier-telegram",
-      "token": "ABC123",
-      "chat_id": "ABC123"
+      "token": "1380132432:AAEum4NrbLd_BXLpWMPQeXyOeoSTqHbqBQg",
+      "chat_id": "119986741"
     }
   ],
   "global_values": [

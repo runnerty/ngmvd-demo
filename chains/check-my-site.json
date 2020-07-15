@@ -35,11 +35,11 @@
         "on_fail": [
           {
             "id": "console_default",
-            "message": "My site is offline!!!"
+            "message": "BO! My site is offline!!!"
           },
           {
             "id": "telegram_default",
-            "message": "My site is offline!!!"
+            "message": "BO! My site is offline!!!"
           }
         ]
       }
