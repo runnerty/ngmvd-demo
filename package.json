@@ -29,7 +29,7 @@
     "@runnerty/trigger-file-watcher": "^2.0.0",
     "@runnerty/trigger-schedule": "^2.0.0",
     "@runnerty/trigger-server": "0.0.1",
-    "runnerty": "^2.6.3"
+    "runnerty": "^3.3.5"
   },
   "devDependencies": {
     "eslint": "^7.1.0",
