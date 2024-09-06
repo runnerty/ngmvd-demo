@@ -20,16 +20,16 @@
   "author": "Coderty",
   "license": "MIT",
   "dependencies": {
-    "@runnerty/executor-check-online-service": "^1.0.1",
-    "@runnerty/executor-image": "^2.0.0",
-    "@runnerty/executor-mail": "^2.0.0",
+    "@runnerty/executor-check-online-service": "^2.0.0",
+    "@runnerty/executor-image": "^3.2.0",
+    "@runnerty/executor-mail": "^3.1.4",
     "@runnerty/executor-shell": "^1.0.5",
     "@runnerty/notifier-console": "^1.0.0",
-    "@runnerty/notifier-telegram": "^1.0.0",
+    "@runnerty/notifier-telegram": "^3.2.1",
     "@runnerty/trigger-file-watcher": "^2.0.0",
-    "@runnerty/trigger-schedule": "^2.0.0",
+    "@runnerty/trigger-schedule": "^3.0.1",
     "@runnerty/trigger-server": "0.0.1",
-    "runnerty": "^2.6.3"
+    "runnerty": "^3.4.0"
   },
   "devDependencies": {
     "eslint": "^7.1.0",
