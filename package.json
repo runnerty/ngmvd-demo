@@ -21,7 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "@runnerty/executor-check-online-service": "^1.0.1",
-    "@runnerty/executor-image": "^2.0.0",
+    "@runnerty/executor-image": "^2.0.1",
     "@runnerty/executor-mail": "^2.0.0",
     "@runnerty/executor-shell": "^1.0.5",
     "@runnerty/notifier-console": "^1.0.0",
@@ -29,7 +29,7 @@
     "@runnerty/trigger-file-watcher": "^2.0.0",
     "@runnerty/trigger-schedule": "^2.0.0",
     "@runnerty/trigger-server": "0.0.1",
-    "runnerty": "^2.6.3"
+    "runnerty": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^7.1.0",
